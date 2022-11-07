@@ -7,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class AnimalTest {
     @Test
     public void rotation(){
-        Animal dog = new Animal();
+        RectangularMap map = new RectangularMap(4, 4);
+        Animal dog = new Animal(map);
         MapDirection[] orientations = {MapDirection.NORTH, MapDirection.EAST,
                                         MapDirection.SOUTH, MapDirection.WEST};
 
@@ -24,13 +25,15 @@ class AnimalTest {
 
     @Test
     public void isAt() {
-        Animal dog = new Animal();
+        RectangularMap map = new RectangularMap(4, 4);
+        Animal dog = new Animal(map);
         assertTrue(dog.isAt(new Vector2d(2, 2)));
     }
 
     @Test
     public void forwardsAndBackwards() {
-        Animal dog = new Animal();
+        RectangularMap map = new RectangularMap(4, 4);
+        Animal dog = new Animal(map);
         Vector2d[] vectors = {new Vector2d(2, 3), new Vector2d(3, 2),
                                 new Vector2d(2, 1), new Vector2d(1, 2)};
 
@@ -44,7 +47,8 @@ class AnimalTest {
 
     @Test
     public void mapLimits() {
-        Animal dog = new Animal();
+        RectangularMap map = new RectangularMap(4, 4);
+        Animal dog = new Animal(map);
         Vector2d[] vectors = {new Vector2d(2, 4), new Vector2d(4, 4),
                 new Vector2d(4, 0), new Vector2d(0, 0), new Vector2d(0, 4)};
 
