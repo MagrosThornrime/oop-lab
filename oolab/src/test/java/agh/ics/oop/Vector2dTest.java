@@ -12,61 +12,61 @@ public class Vector2dTest {
     private final Vector2d fourth = new Vector2d(-1, -1);
 
     @Test
-    public void equalsTest() {
+    public void equals() {
         assertEquals(first, second);
         assertNotEquals(first, third);
         assertEquals(first, first);
     }
 
     @Test
-    public void toStringTest() throws Exception{
+    public void toStringTest() throws Exception {
         assertEquals("(1,0)", first.toString());
         assertEquals("(1,1)", third.toString());
     }
 
     @Test
-    public void precedesTest() {
+    public void precedes() {
         assertTrue(first.precedes(third));
         assertFalse(third.precedes(first));
     }
 
     @Test
-    public void followsTest() {
+    public void follows() {
         assertFalse(first.follows(third));
         assertTrue(third.follows(first));
     }
 
     @Test
-    public void upperRightTest() {
-        assertEquals(first.upperRight(third), third);
-        assertEquals(second.upperRight(fourth), second);
-        assertEquals(fourth.upperRight(fourth), fourth);
+    public void upperRight() {
+        assertEquals(third, first.upperRight(third));
+        assertEquals(second, second.upperRight(fourth));
+        assertEquals(fourth, fourth.upperRight(fourth));
     }
 
     @Test
-    public void lowerLeftTest() {
-        assertEquals(first.lowerLeft(fourth), fourth);
-        assertEquals(second.lowerLeft(third), second);
-        assertEquals(first.lowerLeft(first), first);
+    public void lowerLeft() {
+        assertEquals(fourth, first.lowerLeft(fourth));
+        assertEquals(second, second.lowerLeft(third));
+        assertEquals(first, first.lowerLeft(first));
     }
 
     @Test
-    public void addTest() {
-        assertEquals(first.add(second), new Vector2d(2, 0));
-        assertEquals(first.add(fourth), new Vector2d(0, -1));
-        assertEquals(third.add(third), new Vector2d(2, 2));
+    public void add() {
+        assertEquals(new Vector2d(2, 0), first.add(second));
+        assertEquals(new Vector2d(0, -1), first.add(fourth));
+        assertEquals(new Vector2d(2, 2), third.add(third));
     }
 
     @Test
     public void subtract() {
-        assertEquals(first.subtract(second), new Vector2d(0, 0));
-        assertEquals(third.subtract(first), new Vector2d(0, 1));
-        assertEquals(third.subtract(fourth), new Vector2d(2, 2));
+        assertEquals(new Vector2d(0, 0), first.subtract(second));
+        assertEquals(new Vector2d(0, 1), third.subtract(first));
+        assertEquals(new Vector2d(2, 2), third.subtract(fourth));
     }
 
     @Test
     public void opposite() {
-        assertEquals(third.opposite(), fourth);
-        assertEquals(first.opposite(), new Vector2d(-1, 0));
+        assertEquals(fourth, third.opposite());
+        assertEquals(new Vector2d(-1, 0), first.opposite());
     }
 }

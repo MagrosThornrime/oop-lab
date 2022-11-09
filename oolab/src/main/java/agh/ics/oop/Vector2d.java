@@ -3,9 +3,8 @@ package agh.ics.oop;
 import java.util.Objects;
 
 public class Vector2d {
+    // jeśli x i y mają być publiczne, to zrobić z tego Rekord
     private final int x, y;
-    private int newX, newY;
-
     public Vector2d(int x, int y) {
         this.x = x;
         this.y = y;
@@ -33,27 +32,11 @@ public class Vector2d {
     }
 
     public Vector2d upperRight(Vector2d other) {
-        newX = x;
-        newY = y;
-        if (other.x > x) {
-            newX = other.x;
-        }
-        if (other.y > y) {
-            newY = other.y;
-        }
-        return new Vector2d(newX, newY);
+        return new Vector2d(Math.max(x, other.x), Math.max(y, other.y));
     }
 
     public Vector2d lowerLeft(Vector2d other) {
-        newX = x;
-        newY = y;
-        if (other.x < x) {
-            newX = other.x;
-        }
-        if (other.y < y) {
-            newY = other.y;
-        }
-        return new Vector2d(newX, newY);
+        return new Vector2d(Math.min(x, other.x), Math.min(y, other.y));
     }
 
     public Vector2d opposite() {

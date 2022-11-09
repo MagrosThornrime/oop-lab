@@ -1,3 +1,6 @@
+/oolab/build/
+/oolab/.gradle/
+
 # Default ignored files
 /shelf/
 /workspace.xml
