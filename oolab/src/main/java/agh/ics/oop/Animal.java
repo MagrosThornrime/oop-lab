@@ -1,26 +1,20 @@
 package agh.ics.oop;
 
-import java.util.Objects;
 
-public class Animal {
+public class Animal extends AbstractWorldMapElement{
     private MapDirection orientation = MapDirection.NORTH;
-    private Vector2d position;
-    private IWorldMap map;
-
-    private static final Vector2d INITIAL_VECTOR = new Vector2d(2, 2);
-
+    private AbstractWorldMap map;
 
     /*
     I must assume that if you create an Animal, its place is correct.
     Otherwise it will be a source of confusion - WHEN EXACTLY the Animal
     is found on the map and when not?
      */
-    public Animal(IWorldMap map){
-        this.map = map;
-        position = INITIAL_VECTOR;
+    public Animal(AbstractWorldMap map){
+        this(map, new Vector2d(2, 2));
         map.place(this);
     }
-    public Animal(IWorldMap map, Vector2d initialPosition) {
+    public Animal(AbstractWorldMap map, Vector2d initialPosition) {
         this.map = map;
         position = initialPosition;
         map.place(this);
@@ -36,13 +30,18 @@ public class Animal {
         };
     }
 
-    public boolean isAt(Vector2d position) {
-        return Objects.equals(this.position, position);
-    }
-
     private void modifyPosition(Vector2d deltaPosition) {
         Vector2d newPosition = position.add(deltaPosition);
-        if (map.canMoveTo(newPosition) && !map.isOccupied(newPosition)) {
+        AbstractWorldMapElement objectFound = (AbstractWorldMapElement) map.objectAt(newPosition);
+        if (!map.canMoveTo(newPosition)){
+            return;
+        }
+        if (objectFound instanceof Grass){
+            map.deleteObject(objectFound);
+            position = newPosition;
+            ((GrassField)map).placeOneField();
+        }
+        else if (objectFound == null){
             position = newPosition;
         }
     }
@@ -59,7 +58,5 @@ public class Animal {
     public MapDirection getOrientation() {
         return orientation;
     }
-
-    public Vector2d getPosition(){ return position; }
 
 }
