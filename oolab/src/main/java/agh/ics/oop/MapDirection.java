@@ -42,4 +42,15 @@ public enum MapDirection {
             case WEST -> new Vector2d(-1, 0);
         };
     }
+
+    public static MapDirection fromString(String direction){
+        return switch(direction) {
+            case "N" -> NORTH;
+            case "E" -> EAST;
+            case "S" -> SOUTH;
+            case "W" -> WEST;
+            default -> null;
+        };
+    }
+
 }

@@ -19,7 +19,7 @@ public class Vector2dTest {
     }
 
     @Test
-    public void toStringTest() throws Exception {
+    public void toStringTest() {
         assertEquals("(1,0)", first.toString());
         assertEquals("(1,1)", third.toString());
     }

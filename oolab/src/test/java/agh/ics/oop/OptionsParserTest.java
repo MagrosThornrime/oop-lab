@@ -47,16 +47,8 @@ class OptionsParserTest {
     }
 
     @Test
-    public void nullArgs(){
-        String[] arguments = {"b", null, null, "f"};
-        MoveDirection[] directions = {MoveDirection.BACKWARD, MoveDirection.FORWARD};
-
-        assertTrue(areEqual(directions, parser.parse(arguments)));
-    }
-
-    @Test
     public void emptyResults(){
-        String[] arguments = {"back", null, null, "front"};
+        String[] arguments = {"back", "front"};
         MoveDirection[] directions = {};
 
         assertTrue(areEqual(directions, parser.parse(arguments)));
@@ -66,6 +58,16 @@ class OptionsParserTest {
     public void emptyArgs(){
         String[] arguments = {};
         MoveDirection[] directions = {};
+
+        assertTrue(areEqual(directions, parser.parse(arguments)));
+    }
+
+    @Test
+    public void longArgs(){
+        String[] arguments = {"backward", "forward", "left", "right", "l", "x", "xd", "f"};
+        MoveDirection[] directions = {MoveDirection.BACKWARD, MoveDirection.FORWARD,
+                                    MoveDirection.LEFT, MoveDirection.RIGHT,
+                                    MoveDirection.LEFT, MoveDirection.FORWARD};
 
         assertTrue(areEqual(directions, parser.parse(arguments)));
     }
