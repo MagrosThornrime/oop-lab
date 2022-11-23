@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BordersAndAnimalsTest {
 
-    private Animal[] createAnimals(IWorldMap map, Vector2d[] positions){
+    private Animal[] createAnimals(AbstractWorldMap map, Vector2d[] positions){
         return Arrays.stream(positions)
                 .map(vector->new Animal(map, vector))
                 .toArray(Animal[]::new);
@@ -69,7 +69,7 @@ public class BordersAndAnimalsTest {
 
     @Test
     public void singleAnimal(){
-        IWorldMap map = new RectangularMap(4, 4);
+        AbstractWorldMap map = new RectangularMap(4, 4);
         Animal animal = new Animal(map);
 
         Vector2d[] positions = {new Vector2d(2, 4), new Vector2d(4, 4),
@@ -88,7 +88,7 @@ public class BordersAndAnimalsTest {
 
     @Test
     public void twoAnimals() {
-        IWorldMap map = new RectangularMap(10, 5);
+        AbstractWorldMap map = new RectangularMap(10, 5);
         Vector2d[] positions = {new Vector2d(2, 2), new Vector2d(3, 4)};
         Animal[] animals = createAnimals(map, positions);
         MoveDirection[] directions = parseDirections("f b r l f f r r f f f f f f f f");
@@ -107,7 +107,7 @@ public class BordersAndAnimalsTest {
 
     @Test
     public void engineTwoAnimals() {
-        IWorldMap map = new RectangularMap(10, 5);
+        AbstractWorldMap map = new RectangularMap(10, 5);
         Vector2d[] positions = {new Vector2d(2, 2), new Vector2d(3, 4)};
         MoveDirection[] directions = parseDirections("f b r l f f r r f f f f f f f f");
 
@@ -115,7 +115,7 @@ public class BordersAndAnimalsTest {
 
         SimulationEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
-        Vector2d[] resultPositions = engine.getPositions();
+        Vector2d[] resultPositions = map.elementPositions();
 
         for (int i=0; i<2; i++){
             assertEquals(expectedPositions[i], resultPositions[i]);

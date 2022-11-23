@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35f7711a-7f0d-48cd-bfbd-dfb957f2bafe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/IEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/IWorldMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/RectangularMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/BordersAndAnimalsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/AbstractWorldMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/AbstractWorldMapElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/GrassFieldTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapDirection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/OptionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Vector2d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/IWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/IWorldMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/RectangularMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/RectangularMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/SimulationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/OptionsParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/OptionsParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/Vector2dTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/Vector2dTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/BordersAndAnimalsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/BordersAndAnimalsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +56,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2HDVmc3lEgstE7SWeq9CRX5MezH" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -67,30 +67,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Gradle.Tests in 'oolab.test'">
-    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.World" />
-      <module name="oolab.main" />
-      <option name="PROGRAM_PARAMETERS" value="f b r l f f r r f f f f f f f f" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="agh.ics.oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BordersAndAnimalsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+}</component>
+  <component name="RunManager" selected="Gradle.Tests in 'agh.ics.oop'">
+    <configuration name="GrassFieldTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/oolab" />
@@ -103,7 +89,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.BordersAndAnimalsTest&quot;" />
+            <option value="&quot;agh.ics.oop.GrassFieldTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -113,7 +99,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BordersAndAnimalsTest.twoAnimals" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GrassFieldTest.animalEatsGrass" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/oolab" />
@@ -126,7 +112,53 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.BordersAndAnimalsTest.twoAnimals&quot;" />
+            <option value="&quot;agh.ics.oop.GrassFieldTest.animalEatsGrass&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="GrassFieldTest.grassCantEatAnimal" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/oolab" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.oop.GrassFieldTest.grassCantEatAnimal&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="GrassFieldTest.twoGrasses" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/oolab" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.oop.GrassFieldTest.twoGrasses&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -159,34 +191,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'oolab.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/oolab" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'oolab.test'" />
-        <item itemvalue="Gradle.BordersAndAnimalsTest" />
-        <item itemvalue="Gradle.BordersAndAnimalsTest.twoAnimals" />
         <item itemvalue="Gradle.Tests in 'agh.ics.oop'" />
-        <item itemvalue="Application.World" />
+        <item itemvalue="Gradle.GrassFieldTest" />
+        <item itemvalue="Gradle.GrassFieldTest.grassCantEatAnimal" />
+        <item itemvalue="Gradle.GrassFieldTest.twoGrasses" />
+        <item itemvalue="Gradle.GrassFieldTest.animalEatsGrass" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +211,13 @@
       <updated>1667819803568</updated>
       <workItem from="1667819805405" duration="5597000" />
       <workItem from="1667838944845" duration="1766000" />
-      <workItem from="1667843442216" duration="1669000" />
+      <workItem from="1667843442216" duration="2377000" />
+      <workItem from="1667856903727" duration="756000" />
+      <workItem from="1667911183897" duration="1086000" />
+      <workItem from="1668064242919" duration="4853000" />
+      <workItem from="1668363847953" duration="13072000" />
+      <workItem from="1668420220343" duration="6690000" />
+      <workItem from="1668428869686" duration="2539000" />
     </task>
     <servers />
   </component>

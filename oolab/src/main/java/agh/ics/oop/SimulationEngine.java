@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class SimulationEngine implements IEngine{
     private final Animal[] animals;
     private MoveDirection[] directions;
-    private IWorldMap map;
+    private AbstractWorldMap map;
 
-    public SimulationEngine(MoveDirection[] directions, IWorldMap map, Vector2d[] initialPositions) {
+    public SimulationEngine(MoveDirection[] directions, AbstractWorldMap map, Vector2d[] initialPositions) {
         animals = Arrays.stream(initialPositions)
                 .map(x -> new Animal(map, x))
                 .toArray(Animal[]::new);
@@ -19,18 +19,10 @@ public class SimulationEngine implements IEngine{
     @Override
     public void run() {
 //        System.out.println(map.toString());
-        int animalIndex = 0;
-        for (MoveDirection direction: directions) {
-            if (animalIndex == animals.length) {
-                animalIndex = 0;
-            }
-            animals[animalIndex].move(direction);
+        for (int i=0; i<directions.length; i++) {
+            Animal nextAnimal = animals[i % animals.length];
+            nextAnimal.move(directions[i]);
 //            System.out.println(map.toString());
-            animalIndex++;
         }
-    }
-
-    public Vector2d[] getPositions(){
-        return Arrays.stream(animals).map(Animal::getPosition).toArray(Vector2d[]::new);
     }
 }
