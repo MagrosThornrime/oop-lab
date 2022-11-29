@@ -25,17 +25,19 @@ public class RectangularMap extends AbstractWorldMap{
     }
 
     @Override
-    public boolean place(AbstractWorldMapElement element){
-        if (canMoveTo(element.getPosition())){
-            elements.add(element);
-            return true;
-        }
-        return false;
+    protected Vector2d[] findCorners() {
+        return new Vector2d[]{MIN_VECTOR, maxVector};
     }
 
     @Override
-    protected Vector2d[] findCorners() {
-        return new Vector2d[]{MIN_VECTOR, maxVector};
+    public boolean positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        if(oldPosition == newPosition) {
+            return false;
+        }
+        Animal animal = (Animal) objectAt(oldPosition);
+        elements.remove(oldPosition);
+        elements.put(newPosition, animal);
+        return true;
     }
 
 }

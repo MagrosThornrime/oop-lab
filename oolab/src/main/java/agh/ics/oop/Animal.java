@@ -1,23 +1,38 @@
 package agh.ics.oop;
 
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Animal extends AbstractWorldMapElement{
     private MapDirection orientation = MapDirection.NORTH;
-    private AbstractWorldMap map;
+    private final AbstractWorldMap map;
 
-    /*
-    I must assume that if you create an Animal, its place is correct.
-    Otherwise it will be a source of confusion - WHEN EXACTLY the Animal
-    is found on the map and when not?
-     */
-    public Animal(AbstractWorldMap map){
-        this(map, new Vector2d(2, 2));
-        map.place(this);
+    private final List<IPositionChangeObserver> observers = new LinkedList<>();
+
+    public void addObserver(IPositionChangeObserver observer){
+        observers.add(observer);
     }
+
+    public void removeObserver(IPositionChangeObserver observer){
+        observers.remove(observer);
+    }
+
     public Animal(AbstractWorldMap map, Vector2d initialPosition) {
+        /*
+        I must assume that if you create an Animal, its place is correct.
+        Otherwise, it will be a source of confusion - WHEN EXACTLY the Animal
+        is found on the map and when not?
+         */
         this.map = map;
+        addObserver(map);
         position = initialPosition;
         map.place(this);
+    }
+
+    public Animal(AbstractWorldMap map){
+        //TODO: initialPosition should be a FREE position, map must implement getFreePlace()
+        this(map, new Vector2d(2, 2));
     }
 
     @Override
@@ -30,19 +45,18 @@ public class Animal extends AbstractWorldMapElement{
         };
     }
 
+    private void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        for(IPositionChangeObserver observer: observers){
+            observer.positionChanged(oldPosition, newPosition);
+        }
+    }
+
     private void modifyPosition(Vector2d deltaPosition) {
+        Vector2d oldPosition = position;
         Vector2d newPosition = position.add(deltaPosition);
-        AbstractWorldMapElement objectFound = (AbstractWorldMapElement) map.objectAt(newPosition);
-        if (!map.canMoveTo(newPosition)){
-            return;
-        }
-        if (objectFound instanceof Grass){
-            map.deleteObject(objectFound);
+        if (map.canMoveTo(newPosition)){
             position = newPosition;
-            ((GrassField)map).placeOneField();
-        }
-        else if (objectFound == null){
-            position = newPosition;
+            positionChanged(oldPosition, newPosition);
         }
     }
 

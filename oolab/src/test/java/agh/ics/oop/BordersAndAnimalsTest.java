@@ -115,10 +115,9 @@ public class BordersAndAnimalsTest {
 
         SimulationEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
-        Vector2d[] resultPositions = map.elementPositions();
 
-        for (int i=0; i<2; i++){
-            assertEquals(expectedPositions[i], resultPositions[i]);
+        for (Vector2d position: expectedPositions){
+            assertNotNull(map.objectAt(position));
         }
     }
 }

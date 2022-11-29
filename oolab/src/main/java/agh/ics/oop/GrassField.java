@@ -10,18 +10,14 @@ public class GrassField extends AbstractWorldMap {
 
     private final Random randomGenerator;
 
-    public GrassField(int fields) {
+    private GrassField(Random randomGenerator) {
+        this.randomGenerator = randomGenerator;
+    }
+    public GrassField(int fields, Random randomGenerator) {
+        this(randomGenerator);
         this.fields = fields;
-        randomGenerator = new Random();
         placeFields(fields);
     }
-
-    public GrassField(int fields, long seed) {
-        this.fields = fields;
-        randomGenerator = new Random(seed);
-        placeFields(fields);
-    }
-
     private int randomCoordinate(int max) {
         return (int) round(sqrt(randomGenerator.nextInt(max + 1) * 10));
     }
@@ -29,7 +25,16 @@ public class GrassField extends AbstractWorldMap {
 
     @Override
     public boolean canMoveTo(Vector2d position){
-        return true;
+        return !(objectAt(position) instanceof Animal);
+    }
+
+
+    private boolean place(Grass grass) {
+        if(objectAt(grass.getPosition()) == null) {
+            elements.put(grass.getPosition(), grass);
+            return true;
+        }
+        return false;
     }
 
     public void placeOneField() {
@@ -46,25 +51,21 @@ public class GrassField extends AbstractWorldMap {
     }
 
     @Override
-    public boolean place(AbstractWorldMapElement element) {
-        AbstractWorldMapElement objectAtPosition = (AbstractWorldMapElement) objectAt(element.getPosition());
-        if(objectAtPosition instanceof Animal) {
+    public boolean positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        if(oldPosition == newPosition) {
             return false;
         }
-        if(objectAtPosition instanceof Grass) {
-            if(element instanceof Animal) {
-                elements.remove(objectAtPosition);
-                elements.add(element);
-                placeOneField();
-                return true;
-            }
-            return false;
+        Animal animal = (Animal) objectAt(oldPosition);
+        AbstractWorldMapElement lastElement = (AbstractWorldMapElement) objectAt(newPosition);
+        elements.remove(oldPosition);
+        elements.put(newPosition, animal);
+        if(lastElement instanceof Grass) {
+            placeOneField();
         }
-        elements.add(element);
         return true;
-
     }
 
+    @Override
     protected Vector2d[] findCorners(){
         Vector2d[] positions = elementPositions();
         int xMin = positions[0].x, xMax = positions[0].x;

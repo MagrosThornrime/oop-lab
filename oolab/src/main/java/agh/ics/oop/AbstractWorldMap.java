@@ -1,14 +1,15 @@
 package agh.ics.oop;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-public abstract class AbstractWorldMap implements IWorldMap{
+public abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
 
-    protected final List<AbstractWorldMapElement> elements = new ArrayList<>();
+    protected final Map<Vector2d, AbstractWorldMapElement> elements = new HashMap<>();
 
     protected final MapVisualizer visualizer = new MapVisualizer(this);
+
 
     @Override
     public boolean isOccupied(Vector2d position){
@@ -17,20 +18,11 @@ public abstract class AbstractWorldMap implements IWorldMap{
 
     @Override
     public Object objectAt(Vector2d position) {
-        return elements.stream()
-                .filter(element -> element.isAt(position))
-                .findAny()
-                .orElse(null);
-    }
-
-    public void deleteObject(AbstractWorldMapElement object){
-        elements.remove(object);
+        return elements.get(position);
     }
 
     public Vector2d[] elementPositions() {
-        return elements.stream()
-                        .map(AbstractWorldMapElement::getPosition)
-                        .toArray(Vector2d[]::new);
+        return elements.keySet().toArray(Vector2d[]::new);
     }
 
     public String toString() {
@@ -40,6 +32,13 @@ public abstract class AbstractWorldMap implements IWorldMap{
 
     protected abstract Vector2d[] findCorners();
 
-    public abstract boolean place(AbstractWorldMapElement element);
+    @Override
+    public boolean place(Animal animal){
+        if (canMoveTo(animal.getPosition())){
+            elements.put(animal.getPosition(), animal);
+            return true;
+        }
+        return false;
+    }
 
 }

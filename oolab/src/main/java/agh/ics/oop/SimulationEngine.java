@@ -18,11 +18,11 @@ public class SimulationEngine implements IEngine{
 
     @Override
     public void run() {
-//        System.out.println(map.toString());
+        System.out.println(map.toString());
         for (int i=0; i<directions.length; i++) {
             Animal nextAnimal = animals[i % animals.length];
             nextAnimal.move(directions[i]);
-//            System.out.println(map.toString());
+            System.out.println(map.toString());
         }
     }
 }
