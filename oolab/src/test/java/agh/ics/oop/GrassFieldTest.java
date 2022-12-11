@@ -15,12 +15,14 @@ public class GrassFieldTest {
 
         Animal animal1 = new Animal(map, animalCoords1);
         Animal animal2 = new Animal(map, animalCoords2);
+
         animal2.move(MoveDirection.RIGHT);
         animal2.move(MoveDirection.FORWARD);
         assertSame(animal1, map.objectAt(animalCoords1));
-        map.place(new Animal(map, animalCoords1));
-        assertSame(animal1, map.objectAt(animalCoords1));
-
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            new Animal(map, animalCoords1);
+        });
+        assertEquals("Can't place animal on coords: (1,1)", thrown.getMessage());
     }
 
     @Test
@@ -30,7 +32,6 @@ public class GrassFieldTest {
         Animal animal = new Animal(map, animalCoords);
         Vector2d newGrass = new Vector2d(10, 8);
 
-        map.place(animal);
         assertNull(map.objectAt(newGrass));
         animal.move(MoveDirection.FORWARD);
         assertTrue(map.objectAt(newGrass) instanceof Grass);

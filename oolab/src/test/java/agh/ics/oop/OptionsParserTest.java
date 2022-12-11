@@ -41,17 +41,12 @@ class OptionsParserTest {
     @Test
     public void invalidArgs(){
         String[] arguments = {"front", "boom", "r", "abc"};
-        MoveDirection[] directions = {MoveDirection.RIGHT};
 
-        assertTrue(areEqual(directions, parser.parse(arguments)));
-    }
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            parser.parse(arguments);
+        });
 
-    @Test
-    public void emptyResults(){
-        String[] arguments = {"back", "front"};
-        MoveDirection[] directions = {};
-
-        assertTrue(areEqual(directions, parser.parse(arguments)));
+        assertEquals("front is not legal move specification", thrown.getMessage());
     }
 
     @Test
@@ -64,7 +59,7 @@ class OptionsParserTest {
 
     @Test
     public void longArgs(){
-        String[] arguments = {"backward", "forward", "left", "right", "l", "x", "xd", "f"};
+        String[] arguments = {"backward", "forward", "left", "right", "l", "f"};
         MoveDirection[] directions = {MoveDirection.BACKWARD, MoveDirection.FORWARD,
                                     MoveDirection.LEFT, MoveDirection.RIGHT,
                                     MoveDirection.LEFT, MoveDirection.FORWARD};

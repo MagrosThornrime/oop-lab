@@ -10,6 +10,8 @@ public class GrassField extends AbstractWorldMap {
 
     private final Random randomGenerator;
 
+    private final MapBoundary boundary = new MapBoundary();
+
     private GrassField(Random randomGenerator) {
         this.randomGenerator = randomGenerator;
     }
@@ -28,16 +30,26 @@ public class GrassField extends AbstractWorldMap {
         return !(objectAt(position) instanceof Animal);
     }
 
+    @Override
+    public void place(Animal animal) {
+        if (!canMoveTo(animal.getPosition())) {
+            throw new IllegalArgumentException("Can't place animal on coords: " + animal.getPosition());
+        }
+        elements.put(animal.getPosition(), animal);
+        boundary.insertElement(animal);
+    }
 
     private boolean place(Grass grass) {
         if(objectAt(grass.getPosition()) == null) {
             elements.put(grass.getPosition(), grass);
+            boundary.insertElement(grass);
             return true;
         }
         return false;
     }
 
     public void placeOneField() {
+        // here, using exceptions would be just ugly
         Vector2d position;
         do{
             position = new Vector2d(randomCoordinate(fields), randomCoordinate(fields));
@@ -59,6 +71,7 @@ public class GrassField extends AbstractWorldMap {
         AbstractWorldMapElement lastElement = (AbstractWorldMapElement) objectAt(newPosition);
         elements.remove(oldPosition);
         elements.put(newPosition, animal);
+        boundary.positionChanged(oldPosition, newPosition);
         if(lastElement instanceof Grass) {
             placeOneField();
         }
@@ -66,26 +79,9 @@ public class GrassField extends AbstractWorldMap {
     }
 
     @Override
-    protected Vector2d[] findCorners(){
-        Vector2d[] positions = elementPositions();
-        int xMin = positions[0].x, xMax = positions[0].x;
-        int yMin = positions[0].y, yMax = positions[0].y;
-        for(Vector2d position: positions) {
-            if(position.x < xMin) {
-                xMin = position.x;
-            }
-            else if(position.x > xMax) {
-                xMax = position.x;
-            }
-            if(position.y < yMin) {
-                yMin = position.y;
-            }
-            else if(position.y > yMax) {
-                yMax = position.y;
-            }
-        }
-        Vector2d lowerLeft = new Vector2d(xMin, yMin);
-        Vector2d upperRight = new Vector2d(xMax, yMax);
+    public Vector2d[] findCorners(){
+        Vector2d lowerLeft = new Vector2d(boundary.xMin(), boundary.yMin());
+        Vector2d upperRight = new Vector2d(boundary.xMax(), boundary.yMax());
         return new Vector2d[]{lowerLeft, upperRight};
     }
 }

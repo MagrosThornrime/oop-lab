@@ -1,7 +1,9 @@
 package agh.ics.oop;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
@@ -21,24 +23,14 @@ public abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObse
         return elements.get(position);
     }
 
-    public Vector2d[] elementPositions() {
-        return elements.keySet().toArray(Vector2d[]::new);
-    }
-
     public String toString() {
         Vector2d[] corners = findCorners();
         return visualizer.draw(corners[0], corners[1]);
     }
 
-    protected abstract Vector2d[] findCorners();
+    public abstract Vector2d[] findCorners();
 
-    @Override
-    public boolean place(Animal animal){
-        if (canMoveTo(animal.getPosition())){
-            elements.put(animal.getPosition(), animal);
-            return true;
-        }
-        return false;
+    public List<AbstractWorldMapElement> getElements() {
+        return new ArrayList<>(elements.values());
     }
-
 }

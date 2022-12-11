@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BordersAndAnimalsTest {
+public class RactangularMapTest {
 
     private Animal[] createAnimals(AbstractWorldMap map, Vector2d[] positions){
         return Arrays.stream(positions)
@@ -120,4 +120,19 @@ public class BordersAndAnimalsTest {
             assertNotNull(map.objectAt(position));
         }
     }
+
+    @Test
+    public void twoAnimalsOnePlace() {
+        AbstractWorldMap map = new RectangularMap(10, 5);
+        Vector2d[] positions = {new Vector2d(2, 2), new Vector2d(2, 2)};
+        MoveDirection[] directions = parseDirections("f");
+
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            SimulationEngine engine = new SimulationEngine(directions, map, positions);
+            engine.run();
+        });
+
+        assertEquals("Can't place animal on coords: (2,2)", thrown.getMessage());
+    }
+
 }

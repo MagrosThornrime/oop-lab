@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class SimulationEngine implements IEngine{
     private final Animal[] animals;
-    private MoveDirection[] directions;
-    private AbstractWorldMap map;
+    private final MoveDirection[] directions;
+    private final AbstractWorldMap map;
 
     public SimulationEngine(MoveDirection[] directions, AbstractWorldMap map, Vector2d[] initialPositions) {
         animals = Arrays.stream(initialPositions)
@@ -22,7 +22,7 @@ public class SimulationEngine implements IEngine{
         for (int i=0; i<directions.length; i++) {
             Animal nextAnimal = animals[i % animals.length];
             nextAnimal.move(directions[i]);
-            System.out.println(map.toString());
+            System.out.println(map);
         }
     }
 }

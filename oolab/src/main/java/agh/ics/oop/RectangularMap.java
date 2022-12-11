@@ -25,7 +25,7 @@ public class RectangularMap extends AbstractWorldMap{
     }
 
     @Override
-    protected Vector2d[] findCorners() {
+    public Vector2d[] findCorners() {
         return new Vector2d[]{MIN_VECTOR, maxVector};
     }
 
@@ -38,6 +38,14 @@ public class RectangularMap extends AbstractWorldMap{
         elements.remove(oldPosition);
         elements.put(newPosition, animal);
         return true;
+    }
+
+    @Override
+    public void place(Animal animal) {
+        if (!canMoveTo(animal.getPosition())) {
+            throw new IllegalArgumentException("Can't place animal on coords: " + animal.getPosition());
+        }
+        elements.put(animal.getPosition(), animal);
     }
 
 }

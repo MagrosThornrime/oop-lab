@@ -31,7 +31,6 @@ public class Animal extends AbstractWorldMapElement{
     }
 
     public Animal(AbstractWorldMap map){
-        //TODO: initialPosition should be a FREE position, map must implement getFreePlace()
         this(map, new Vector2d(2, 2));
     }
 
