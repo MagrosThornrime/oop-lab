@@ -12,4 +12,14 @@ public class Grass extends AbstractWorldMapElement{
         return "*";
     }
 
+    @Override
+    public String getResource(){
+        return "oolab/src/main/resources/grass.png";
+    }
+
+    @Override
+    public String labelText(){
+        return "Trawa";
+    }
+
 }

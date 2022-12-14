@@ -9,9 +9,6 @@ public class YVector2dComparator implements Comparator<Vector2d> {
         if(intResults != 0){
             return intResults;
         }
-        if(!firstVector.equals(secondVector)) {
-            return 1;
-        }
-        return 0;
+        return Integer.compare(firstVector.y, secondVector.y);
     }
 }

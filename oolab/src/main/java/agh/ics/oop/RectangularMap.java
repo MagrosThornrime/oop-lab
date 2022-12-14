@@ -31,7 +31,7 @@ public class RectangularMap extends AbstractWorldMap{
 
     @Override
     public boolean positionChanged(Vector2d oldPosition, Vector2d newPosition) {
-        if(oldPosition == newPosition) {
+        if(oldPosition.equals(newPosition)) {
             return false;
         }
         Animal animal = (Animal) objectAt(oldPosition);

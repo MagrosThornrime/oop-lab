@@ -1,6 +1,8 @@
 package agh.ics.oop;
 
 
+import javafx.scene.control.Label;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -70,6 +72,21 @@ public class Animal extends AbstractWorldMapElement{
 
     public MapDirection getOrientation() {
         return orientation;
+    }
+
+    @Override
+    public String getResource(){
+        return switch (orientation){
+            case NORTH -> "oolab/src/main/resources/up.png";
+            case EAST -> "oolab/src/main/resources/right.png";
+            case SOUTH -> "oolab/src/main/resources/down.png";
+            case WEST -> "oolab/src/main/resources/left.png";
+        };
+    }
+
+    @Override
+    public String labelText(){
+        return "Z" + position.toString();
     }
 
 }

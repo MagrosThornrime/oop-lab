@@ -19,7 +19,7 @@ public class MapBoundary implements IPositionChangeObserver{
 
     @Override
     public boolean positionChanged(Vector2d oldPosition, Vector2d newPosition){
-        if(oldPosition == newPosition) {
+        if(oldPosition.equals(newPosition)) {
             return false;
         }
         if(xOrdered.containsKey(newPosition)) {

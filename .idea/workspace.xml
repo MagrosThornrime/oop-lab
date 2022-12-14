@@ -5,26 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35f7711a-7f0d-48cd-bfbd-dfb957f2bafe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapBoundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/XVector2dComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/YVector2dComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/gui/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/gui/GuiElementBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/gui/GuiInputBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/gui/IMoveObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/gui/ImageGetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/resources/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/resources/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/resources/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/resources/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oolab/src/main/resources/up.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/AbstractWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/AbstractWorldMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/AbstractWorldMapElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/AbstractWorldMapElement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/IWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/IWorldMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/OptionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapBoundary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/RectangularMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/RectangularMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/SimulationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/BordersAndAnimalsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/RactangularMapTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/GrassFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/GrassFieldTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/OptionsParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/test/java/agh/ics/oop/OptionsParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/XVector2dComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/XVector2dComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/YVector2dComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/YVector2dComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/gui/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +68,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d6021f6d-00c4-4fc3-8185-bf577ef34978" />
+        <option name="url" value="https://github.com/MagrosThornrime/oop-lab.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -81,20 +95,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/files/Intellij/IdeaProjects/oop-lab",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/files/Intellij/IdeaProjects/oop-lab/oolab/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/oolab/src/main/resources" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.World">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="agh.ics.oop.gui.App" />
@@ -202,11 +226,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'agh.ics.oop'" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.World" />
         <item itemvalue="Gradle.GrassFieldTest.eatingGrass" />
         <item itemvalue="Gradle.GrassFieldTest.twoAnimals" />
-        <item itemvalue="Gradle.Tests in 'agh.ics.oop'" />
       </list>
     </recent_temporary>
   </component>
@@ -236,7 +260,13 @@
       <workItem from="1670681361928" duration="13508000" />
       <workItem from="1670704905191" duration="3854000" />
       <workItem from="1670762839616" duration="3158000" />
-      <workItem from="1670773914740" duration="5232000" />
+      <workItem from="1670773914740" duration="6300000" />
+      <workItem from="1670811821793" duration="3676000" />
+      <workItem from="1670815509927" duration="4565000" />
+      <workItem from="1670862340477" duration="3324000" />
+      <workItem from="1670895355619" duration="9411000" />
+      <workItem from="1670905978930" duration="13150000" />
+      <workItem from="1670960399803" duration="19768000" />
     </task>
     <servers />
   </component>
@@ -267,50 +297,11 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/oolab/src/main/java/agh/ics/oop/MapVisualizer.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.String" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/oop_lab$AnimalTest.ic" NAME="AnimalTest Coverage Results" MODIFIED="1667790223450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -16,4 +16,8 @@ public abstract class AbstractWorldMapElement {
 
     public abstract String toString();
 
+    public abstract String getResource();
+
+    public abstract String labelText();
+
 }
